@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+   <link href="https://fonts.googleapis.com/css?family=Montserrat:400&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>CPS</title>
+  <style>
+            *{
+                margin: 0;
+                padding: 0;
+                font-family: 'Montserrat'
+                
+            }
+            body{
+                background-color: aliceblue;
+      overflow: hidden;
+                
+            }
+            .header{
+                width: 100%;
+                background-color: powderblue;
+                padding: 20px;
+                color:azure ;
+                border-bottom: solid;
+                border-color: rgb(188, 238, 245);
+                border-width: 5px;
+            }
+            .thingsss{
+                padding: 3%;
+            }
+            .timee{
+                font-weight: bold;
+                padding: 5px;
+            }
+            #bigBtn{
+                background-color: rgb(196, 228, 255);
+                padding: 30px;
+                width: 75%;
+                min-height:200px;
+                border: none;
+         cursor:pointer;
+            }
+            #bigBtn:active{
+                background-color: rgb(140, 200, 255);
+                transform: scale(1.03);
+            }
+            #textB h3{
+                padding:8px;
+                margin-left: 5%;
+                margin-bottom: 20px;
+            }
+            .clcl{
+                padding: 6px;
+                font-weight: 600;
+            }
+            #clickNum{
+                margin-left:200px;
+                font-size: 45px;
+            }
+            .chooseT{
+                padding: 5px;
+                font-weight: bold;
+                position: absolute;
+            }
+            #second{
+                padding: 2px;
+                margin-left: 30px;
+                margin-top: 5%;
+                position: absolute;
+            }
+            #reset{
+                padding: 10px 30px;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                font-weight: bold;
+                background-color: cornflowerblue;
+                border: none;
+                font-size: larger;
+                text-align: center;
+                margin-left: 400px;
+                position: absolute;
+            }
+            #reset:active{
+                transform: scale(1.2);
+            }
+            footer div{
+                margin-top:100px;
+                padding: 10px;
+            }
+            @media(max-width:700px){
+                #reset{
+                    margin-left:200px;
+                }
+            }
+        </style>
+ </head>
+
+ <body>
+  <header>
+   <div class="header">
+     <h1 style="font-weight:bold;">Click Per Second Test</h1>
+   </div>
+  </header>
+  <!--main content-->
+  <div class="thingsss">
+   <p class="timee">Time: <span id="time">0</span></p>
+   <!-- <button type="button" name="button" id="bigBtn" onclick="addOneClick()"></button> -->
+   <button type="button" name="fal" id="bigBtn" onclick="clicked()" ><h1 id="butText">Click the button to start</h1></button>
+   <br>
+   <div id="textB">
+    <h3>Your CPS is: <span id="final_CPS">0</span></h3>
+    <span class="clcl">Your Click:</span>
+    <p id="clickNum">0</p>
+    <br>
+    <form class="" action="index.html" method="post">
+    <p class="chooseT">Choose Your Time</p>
+    <select id="second" onchange="changeT()" > 
+     <option value="5" class="secChoice">5</option>
+     <option value="10" class="secChoice">10</option>
+     <option value="15" class="secChoice">15</option>
+     <option value="20" class="secChoice">20</option>
+     <option value="25" class="secChoice">25</option>
+     <option value="30" class="secChoice">30</option>
+    </select>
+    
+   </form>
+   <button id="reset">Reset</button>
+   </div>
+  </div>
+  <footer>
+   <div style="font-size: 5px;" >
+    made by JW
+   </div>
+  </footer>
+        <script type="text/javascript">
+            var isClicked = false;
+            console.log(isClicked);
+            var start = document.getElementById('bigBtn');
+            document.getElementById("time").innerHTML = Number(document.getElementById("second").value);
+            //add click
+            var clicks = 0;
+            function clicked(){
+                isClicked = false;
+                var butn = document.getElementById("bigBtn");
+                if (butn.name == "fal"){
+                    timer();
+                    time = Number(document.getElementById("second").value);
+                    butn.name = "tru";
+                    document.getElementById("butText").style.opacity = 0;
+                    isClicked = false;
+                }else if (butn.name == "tru"){
+                    clicks += 1;
+                    document.getElementById("clickNum").innerHTML = clicks;
+                    
+                }
+            } 
+            function changeT(){
+                document.getElementById("time").innerHTML = Number(document.getElementById("second").value);
+            }
+            var time = Number(document.getElementById("second").value);
+            //timer
+            function timer(){ 
+                var timer =setInterval(function(){
+                    document.getElementById("time").innerHTML =Number((time-0.01).toFixed(2));
+                    time = time - 0.01;
+                    if (time<0.01){
+                        clearInterval(timer)
+                        document.getElementById("bigBtn").disabled = true;
+                        calculate();
+                        
+                    }
+                    if (isClicked == true){
+                        clearInterval(timer);
+                        document.getElementById("time").innerHTML = Number(document.getElementById("second").value );
+                    } 
+                },10);
+            }
+
+            //calculate cps
+            function calculate(){
+                var cps = clicks/Number(document.getElementById("second").value);
+                document.getElementById("final_CPS").innerHTML = cps; 
+            }
+            //reset button
+            var resetBtn = document.getElementById("reset");
+            resetBtn.onclick = function(){
+                buttonn = document.getElementById("bigBtn")
+                isClicked = true;
+                buttonn.name ="fal";
+                buttonn.disabled = false;
+                time = Number(document.getElementById("second").value);
+                clicks = 0;
+                document.getElementById("final_CPS").innerHTML = 0; 
+                document.getElementById("butText").style.opacity = 1;
+                document.getElementById("clickNum").innerHTML = clicks;
+                console.log(isClicked);
+                document.getElementById("time").innerHTML = Number(document.getElementById("second").value );
+            };
+
+        </script>
+ </body>
+</html>
