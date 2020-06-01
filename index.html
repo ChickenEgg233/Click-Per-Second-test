@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
  <head>
    <link href="https://fonts.googleapis.com/css?family=Montserrat:400&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <meta charset="utf-8">
   <title>CPS</title>
   <style>
@@ -13,7 +14,7 @@
             }
             body{
                 background-color: aliceblue;
-      overflow: hidden;
+
                 
             }
             .header{
@@ -95,6 +96,48 @@
  </head>
 
  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Dimension Laboratory</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Minecraft
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="https://github.com/Fallen-Breath/MCDReforged">MCDReforged Server Control Script</a>
+                <a class="dropdown-item" href="https://github.com/MCDReforged-Plugins/PluginCatalogue">MCDReforged Plugin Catalogue</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="https://drive.google.com/drive/folders/1KzmA3yKqymkzLSs-GV_yvAF2fomWaEzL?usp=sharing">SUSG Survival Server World Download</a>
+              </div>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="CpsTest.html">CPS test</a>
+              </li>
+            </li>
+          </ul>
+        
+        </div>
+      </nav>
+
+      <div id="HomePageSlide" class="carousel slide main" data-ride="carousel">
+        <ul class="carousel-indicators">
+          <li data-target="#HomePageSlide" data-slide-to="0" class="active"></li>
+          <li data-target="#HomePageSlide" data-slide-to="1"></li>
+          <li data-target="#HomePageSlide" data-slide-to="2"></li>
+          <li data-target="#HomePageSlide" data-slide-to="3"></li>
+          <li data-target="#HomePageSlide" data-slide-to="4"></li>
+  
+        </ul>
   <header>
    <div class="header">
      <h1 style="font-weight:bold;">Click Per Second Test</h1>
@@ -128,7 +171,7 @@
   </div>
   <footer>
    <div style="font-size: 5px;" >
-    made by JW
+    made by CE233
    </div>
   </footer>
         <script type="text/javascript">
